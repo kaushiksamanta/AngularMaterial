@@ -1,0 +1,28 @@
+<md-dialog  ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Select Location</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times icon-large" aria-hidden="true"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-padding" layout="column">
+            <!--<h2 class="md-title">{{fulladdress}}</h2>-->
+            <input id="pac-input" class="controls" type="text" placeholder="Search Box" style="
+            border: 1px solid #A09B9B;
+            border-radius: 5px;
+            padding: 9px;
+            margin-bottom: 6px;
+            ">
+            <div id="googleMap" style="width:660px;height:375px;"></div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()" style="margin-right:20px;" class="md-raised md-accent">
+                Select
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

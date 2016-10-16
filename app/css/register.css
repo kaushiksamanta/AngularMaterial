@@ -1,0 +1,56 @@
+#register {
+    height: 100%;
+    background-size: cover;
+}
+#register #register-form-wrapper {
+    flex: 1 0 auto;
+    padding: 32px;
+}
+#register #register-form-wrapper #register-form {
+    width: 384px;
+    max-width: 384px;
+    padding: 32px;
+    background: #FFFFFF;
+    text-align: center;
+}
+#register #register-form-wrapper #register-form .logo {
+    width: 128px;
+    height: 128px;
+    line-height: 128px;
+    font-size: 86px;
+    font-weight: 500;
+    margin: 32px auto;
+    color: #FFFFFF;
+    border-radius: 2px;
+}
+#register #register-form-wrapper #register-form .title {
+    margin: 16px 0 32px 0;
+    font-size: 17px;
+}
+#register #register-form-wrapper #register-form form {
+    width: 100%;
+    text-align: left;
+}
+#register #register-form-wrapper #register-form form md-checkbox {
+    margin: 0;
+}
+#register #register-form-wrapper #register-form form .terms {
+    font-size: 13px;
+    margin: 16px 0 32px 0;
+}
+#register #register-form-wrapper #register-form form .terms a {
+    margin-left: 4px;
+}
+#register #register-form-wrapper #register-form form .submit-button {
+    width: 220px;
+    margin: 16px auto;
+    display: block;
+}
+#register #register-form-wrapper #register-form .login {
+    margin: 32px auto 24px auto;
+    width: 250px;
+    font-weight: 500;
+}
+#register #register-form-wrapper #register-form .login .text {
+    margin-right: 8px;
+}

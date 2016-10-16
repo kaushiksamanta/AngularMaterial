@@ -1,0 +1,52 @@
+@media only screen and (min-width: 768px) {
+    .wrapper > section, .wrapper > footer{
+        margin-left: 0px;
+    }
+}
+@media (min-width: 768px) {
+    .T20 {
+        width: 20%;
+    }
+    .T60 {
+        width: 60%;
+    }
+}
+
+#forms .content .form-data-wrapper {
+    margin-left: 16px;
+}
+#forms .content .form-data-wrapper .json-data-wrapper {
+    overflow: hidden;
+}
+#forms .content .form-data-wrapper .json-data-wrapper pre {
+    font-size: 16px;
+}
+.table-striped > tbody > tr:hover{
+  background-color: rgba(9, 171, 156, 0.52);
+}
+
+.page-background{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#87e0fd+0,198aac+100 */
+    background: rgb(135,224,253); /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  rgba(135,224,253,1) 0%, rgba(25,138,172,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  rgba(135,224,253,1) 0%,rgba(25,138,172,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  rgba(135,224,253,1) 0%,rgba(25,138,172,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#198aac',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.app-background{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b3dced+0,4fc0e2+50,bce0ee+100 */
+    background: rgb(179,220,237); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(179,220,237,1) 0%, rgba(79,192,226,1) 50%, rgba(188,224,238,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(179,220,237,1) 0%,rgba(79,192,226,1) 50%,rgba(188,224,238,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(179,220,237,1) 0%,rgba(79,192,226,1) 50%,rgba(188,224,238,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=0 ); /* IE6-9 */
+}
+
+.dark{
+    color: #0c4f63 !important;
+}
+
+.centerClass{
+    text-align: center;
+}

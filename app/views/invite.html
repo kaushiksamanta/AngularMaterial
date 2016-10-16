@@ -1,0 +1,96 @@
+<div id="invitepage" class="page-layout simple fullwidth doc-page app-background" layout="column">
+
+    <div class="content" layout="column">
+        <div layout="row">
+            <div class="form-wrapper md-whiteframe-6dp" flex="40" style="
+               margin-left: 30%;
+               margin-top: 5%;
+               background-color: #FFF;
+               margin-bottom: 5%;
+               ">
+                <form name="inviteForm" class="md-inline-form" novalidate ng-submit="invite(inviteForm.$valid)">
+
+                    <md-toolbar class="md-theme-light">
+                        <h2 class="md-toolbar-tools">
+                            <span>Invite Customer</span>
+                        </h2>
+                    </md-toolbar>
+                <div style="padding: 10px 10px 10px 10px;" dw-loading="invite">
+                    <div layout-gt-sm="row" style="margin-bottom: -25px;">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input name="firstname" ng-model="user.firstname" placeholder="First Name *"
+                                   required>
+                            <div class="error"
+                                 ng-show="inviteForm.$submitted || inviteForm.firstname.$dirty && inviteForm.firstname.$invalid">
+                                <small class="error text-danger" ng-show="inviteForm.firstname.$error.required">
+                                    Firstname field is required.
+                                </small>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input name="lastname" ng-model="user.lastname" placeholder="Last Name *"
+                                   required>
+                            <div class="error"
+                                 ng-show="inviteForm.$submitted || inviteForm.lastname.$dirty && inviteForm.lastname.$invalid">
+                                <small class="error text-danger" ng-show="inviteForm.lastname.$error.required">
+                                    Lastname field is required.
+                                </small>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block">
+                       <input type="email" name="email" ng-model="user.email" placeholder="Email"
+                              ng-pattern="/^.+@.+\..+$/">
+                       <div class="error"
+                            ng-show="inviteForm.email.$dirty && inviteForm.email.$invalid">
+                          <small class="error text-danger" ng-show="inviteForm.email.$error">
+                              That is not a valid email. Please insert a valid email.
+                          </small>
+                          <!--<small class="error text-danger"-->
+                                 <!--ng-show="inviteForm.email.$invalid && !inviteForm.email.$error">-->
+                             <!--That is not a valid email. Please insert a valid email.-->
+                          <!--</small>-->
+                       </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                       <input type="text" name="country" ng-model="user.countryCode" placeholder="Country Code *"
+                              ng-minlength="2" maxlength="3" required numbers-only="numbers-only">
+                       <div class="error"
+                            ng-show="inviteForm.$submitted || inviteForm.country.$dirty && inviteForm.country.$invalid">
+                          <small class="error text-danger" ng-show="inviteForm.country.$error.required">
+                             Country Code is required.
+                          </small>
+                          <small class="error text-danger" ng-show="inviteForm.country.$error.minlength && !inviteForm.country.$error.required">
+                             Country Code is required to be 2 digits
+                          </small>
+                       </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                       <input type="text" name="phone" ng-model="user.phone" placeholder="Phone Number *"
+                               ng-minlength="8" maxlength="10" required numbers-only="numbers-only">
+                       <div class="error"
+                            ng-show="inviteForm.$submitted || inviteForm.phone.$dirty && inviteForm.phone.$invalid">
+                          <small class="error text-danger" ng-show="inviteForm.phone.$error.required">
+                             Phone No is required.
+                          </small>
+                          <small class="error text-danger" ng-show="inviteForm.phone.$error.minlength && !inviteForm.phone.$error.required">
+                             Phone No is required to be 8 digits
+                          </small>
+                       </div>
+                    </md-input-container>
+                    <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
+                               ng-disabled="inviteForm.$invalid || inviteForm.$pristine">
+                        Submit
+                    </md-button>
+                </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

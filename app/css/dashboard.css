@@ -1,0 +1,118 @@
+/*left panel dashboard*/
+.left-panel-dashboard{
+    margin-right: -1px;
+}
+
+/*date placeholder css*/
+ .date-placeholder-dashboard{
+     padding-right: 2px;
+     background-color: #fff;
+     cursor: pointer;
+ }
+
+/*datepicker css*/
+.datepicker{
+    margin-left: 51px;
+    margin-top: -24px;
+}
+
+/*date button css*/
+.date-button{
+    margin-right: -14px;
+}
+
+/*left scrollbar css*/
+.left-scrollbar-dashboard{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-face-color: #367CD2;
+    scrollbar-shadow-color: #FFFFFF;
+    scrollbar-highlight-color: #FFFFFF;
+    scrollbar-3dlight-color: #FFFFFF;
+    scrollbar-darkshadow-color: #FFFFFF;
+    scrollbar-track-color: #FFFFFF;
+    scrollbar-arrow-color: #FFFFFF;
+}
+.left-scrollbar-dashboard::-webkit-scrollbar {
+    width: 6px;
+}
+.left-scrollbar-dashboard::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+.left-scrollbar-dashboard::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: #1797be;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+/*id left scroll bar css*/
+.outer-id{
+    background-color: #007fff;
+    border-radius:20px;
+    width: 20px;
+    height: 20px;
+}
+.inner-id{
+    color: white;
+    text-align: center;
+    padding-left: 4px;
+}
+
+/* media box margin top css*/
+.media-box-top{
+    margin-top: 7px;
+}
+
+/*customer first letter css*/
+.first-letter-outer{
+    background-color: green;
+    border-radius:0px;
+    width: 20px;
+    height: 20px;
+}
+.first-letter-inner{
+    color: white;
+    text-align: center;
+    padding-left: 5px;
+}
+
+/*left panel location css*/
+.location-color{
+    color:#fc7800;
+}
+
+/*right scrollbar css*/
+.right-scrollbar-dashboard{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-face-color: #367CD2;
+    scrollbar-shadow-color: #FFFFFF;
+    scrollbar-highlight-color: #FFFFFF;
+    scrollbar-3dlight-color: #FFFFFF;
+    scrollbar-darkshadow-color: #FFFFFF;
+    scrollbar-track-color: #FFFFFF;
+    scrollbar-arrow-color: #FFFFFF;
+}
+.right-scrollbar-dashboard::-webkit-scrollbar {
+    width: 6px;
+}
+.right-scrollbar-dashboard::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+.right-scrollbar-dashboard::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: #1797be;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+/*hr css*/
+.hrclass{
+    margin-top: 1px;
+    margin-bottom: 0px;
+}

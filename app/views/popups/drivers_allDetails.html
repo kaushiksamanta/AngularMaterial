@@ -1,0 +1,18 @@
+<md-dialog  ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>COMPANY DETAILS</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times icon-large" aria-hidden="true"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-padding" layout="column">
+            <h2 class="md-title">Name :  {{modelDetails.company.name}}</h2>
+            <h2 class="md-title">Email :  {{modelDetails.company.email}}</h2>
+            <h2 class="md-title">Phone Number :  {{modelDetails.company.phoneNo}}</h2>
+        </md-dialog-content>
+    </form>
+</md-dialog>

@@ -1,0 +1,97 @@
+<div id="profileForms" class="page-layout simple fullwidth doc-page app-background" layout="column">
+    <div class="content" layout="column">
+        <div layout="row">
+            <div class="form-wrapper md-whiteframe-6dp" flex="40" style="
+               margin-left: 30%;
+               margin-top: 5%;
+               background-color: #FFF;
+               margin-bottom: 5%;
+            ">
+                <form name="profileForm" class="md-inline-form"  ng-submit="profileUpdate(profileForm.$valid)">
+
+                    <md-toolbar class="md-theme-light">
+                        <h2 class="md-toolbar-tools">
+                            <span>Update Profile</span>
+                        </h2>
+                    </md-toolbar>
+                <div style="padding: 10px 10px 10px 10px;" dw-loading="profile">
+                        <md-input-container class="md-block">
+                            <input name="username" ng-model="user.name" placeholder="Name"
+                                   required>
+                            <div class="error"
+                                 ng-show="profileForm.$submitted || profileForm.username.$dirty && profileForm.username.$invalid">
+                                <small class="error text-danger" ng-show="profileForm.username.$error.required">
+                                    Username field is required.
+                                </small>
+                            </div>
+                        </md-input-container>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input type="text" name="countryCode" ng-model="user.countrycode" placeholder="Country Code"
+                                   ng-minlength="2" maxlength="3" required numbers-only="numbers-only">
+                            <div class="error"
+                                 ng-show="profileForm.$submitted || profileForm.countryCode.$dirty && profileForm.countryCode.$invalid">
+                                <small class="error text-danger" ng-show="profileForm.countryCode.$error.required">
+                                    Country Code is required.
+                                </small>
+                                <small class="error text-danger" ng-show="profileForm.countryCode.$error.minlength && !profileForm.countryCode.$error.required">
+                                    Country Code is required to be 2 digits
+                                </small>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <input type="text" name="phone" ng-model="user.phoneNo" placeholder="Phone Number"
+                                   ng-minlength="10" maxlength="10" required numbers-only="numbers-only">
+                            <div class="error"
+                                 ng-show="profileForm.$submitted || profileForm.phone.$dirty && profileForm.phone.$invalid">
+                                <small class="error text-danger" ng-show="profileForm.phone.$error.required">
+                                    Phone No is required.
+                                </small>
+                                <small class="error text-danger" ng-show="profileForm.phone.$error.minlength && !profileForm.phone.$error.required">
+                                    Phone No is required to be 10 digits
+                                </small>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <!--<md-input-container class="md-block">-->
+                        <!--<input name="username" ng-model="user.address" placeholder="Address"-->
+                               <!--required>-->
+                        <!--<div class="error"-->
+                             <!--ng-show="profileForm.$submitted || profileForm.address.$dirty && profileForm.address.$invalid">-->
+                            <!--<small class="error text-danger" ng-show="profileForm.address.$error.required">-->
+                                <!--Address field is required.-->
+                            <!--</small>-->
+                        <!--</div>-->
+                    <!--</md-input-container>-->
+
+                    <!--<lf-ng-md-file-input lf-files="files" lf-browse-label="Search" lf-remove-label="Delete" lf-maxcount="1" lf-drag-and-drop-label="Drag and Drop here!" lf-placeholder="Upload Profile Picture" lf-mimetype="image/*" drag preview></lf-ng-md-file-input>-->
+                    <label class="control-label" style="color: #BDBDBD;">Image Upload</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="btn btn-default btn-file">
+                                    <input id="registerFile" type="file" accept="image/*" onchange="angular.element(this).scope().file_to_upload(this.files,'image')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img style="width:150px;height:150px"
+                                 class="form-control" alt="No image available"
+                                 id="image" src="{{profilePic.original}}"/>
+                        </div>
+                    </div>
+
+                    <md-button type="submit" class="md-raised md-accent" aria-label="Submit">
+                        Submit
+                    </md-button>
+                </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

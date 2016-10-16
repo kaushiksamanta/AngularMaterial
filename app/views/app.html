@@ -1,0 +1,17 @@
+<!-- top navbar-->
+<header ng-include="'app/views/partials/top-navbar.html'" class="topnavbar-wrapper"></header>
+
+<!-- Main section-->
+<section>
+   <!-- Page content-->
+   <div ui-view="" autoscroll="false" ng-class="app.viewAnimation" ></div>
+
+</section>
+<!-- Page footer-->
+<footer ng-include="'app/views/partials/footer.html'" style="
+    background-color: #1797be;
+    background-image: -webkit-linear-gradient(left, #1797be 0%, #23b7e5 100%);
+    background-image: -o-linear-gradient(left, #1797be 0%, #23b7e5 100%);
+    background-image: linear-gradient(to right, #1797be 0%, #23b7e5 100%);
+    background-repeat: repeat-x;
+    color: #FFF;border-top: 0px;"></footer>

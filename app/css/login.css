@@ -1,0 +1,107 @@
+#login {
+    height: 100%;
+    background-size: cover;
+}
+#login #login-form-wrapper {
+    flex: 1 0 auto;
+    padding: 32px;
+}
+#login #login-form-wrapper #login-form {
+    width: 384px;
+    max-width: 384px;
+    padding: 32px;
+    background: #FFFFFF;
+    text-align: center;
+}
+#login #login-form-wrapper #login-form .logo {
+    width: 128px;
+    height: 128px;
+    line-height: 128px;
+    font-size: 86px;
+    font-weight: 500;
+    margin: 32px auto;
+    color: #FFFFFF;
+    border-radius: 2px;
+}
+#login #login-form-wrapper #login-form .title {
+    font-size: 17px;
+    margin: 16px 0 32px 0;
+}
+#login #login-form-wrapper #login-form form {
+    width: 100%;
+    text-align: left;
+}
+#login #login-form-wrapper #login-form form md-checkbox {
+    margin: 0;
+}
+#login #login-form-wrapper #login-form form .remember-forgot-password {
+    font-size: 13px;
+    margin-top: 8px;
+}
+#login #login-form-wrapper #login-form form .remember-forgot-password .remember-me {
+    margin-bottom: 16px;
+}
+#login #login-form-wrapper #login-form form .remember-forgot-password .forgot-password {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+#login #login-form-wrapper #login-form form .submit-button {
+    width: 220px;
+    margin: 16px auto;
+    display: block;
+}
+#login #login-form-wrapper #login-form .register {
+    margin: 32px auto 24px auto;
+    width: 250px;
+    font-weight: 500;
+}
+#login #login-form-wrapper #login-form .register .text {
+    margin-right: 8px;
+}
+#login #login-form-wrapper #login-form .separator {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 24px auto 16px auto;
+    position: relative;
+    overflow: hidden;
+    width: 100px;
+    color: rgba(0, 0, 0, 0.54);
+}
+#login #login-form-wrapper #login-form .separator .text {
+    display: inline-block;
+    vertical-align: baseline;
+    position: relative;
+    padding: 0 8px;
+    z-index: 9999;
+}
+#login #login-form-wrapper #login-form .separator .text:before, #login #login-form-wrapper #login-form .separator .text:after {
+    content: '';
+    display: block;
+    width: 30px;
+    position: absolute;
+    top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+#login #login-form-wrapper #login-form .separator .text:before {
+    right: 100%;
+}
+#login #login-form-wrapper #login-form .separator .text:after {
+    left: 100%;
+}
+#login #login-form-wrapper #login-form .md-button.google, #login #login-form-wrapper #login-form .md-button.facebook {
+    width: 192px;
+    text-transform: none;
+    color: #FFFFFF;
+    font-size: 13px;
+}
+#login #login-form-wrapper #login-form .md-button.google md-icon, #login #login-form-wrapper #login-form .md-button.facebook md-icon {
+    color: #FFFFFF;
+    margin: 0 8px 0 0;
+}
+#login #login-form-wrapper #login-form .md-button.google {
+    background-color: #D73D32;
+}
+#login #login-form-wrapper #login-form .md-button.facebook {
+    background-color: #3f5c9a;
+}

@@ -1,0 +1,69 @@
+<div id="login" class="flex-scrollable" layout="column" ms-scroll >
+   <div id="login-form-wrapper" layout="column" layout-align="center center">
+      <div id="login-form" class="md-whiteframe-8dp" dw-loading="login">
+         <div>
+            <img src="app/img/white_drob_icon.png" style="width: 190px;
+               height: 190px;">
+         </div>
+         <div class="title">Log in to your account</div>
+         <form name="loginForm" novalidate ng-submit="login(loginForm.$valid)">
+            <md-input-container class="md-block">
+               <input type="email" name="email" ng-model="user.email" placeholder="Email"
+                       ng-pattern="/^.+@.+\..+$/" required>
+               <div class="error"
+                    ng-show="loginForm.$submitted || loginForm.email.$dirty && loginForm.email.$invalid">
+                  <small class="error text-danger" ng-show="loginForm.email.$error.required">
+                     Email is required.
+                  </small>
+                  <small class="error text-danger"
+                         ng-show="loginForm.email.$invalid && !loginForm.email.$error.required">
+                     That is not a valid email. Please insert a valid email.
+                  </small>
+               </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+               <input type="password" name="password" ng-model="user.password" placeholder="Password" ng-minlength="6"
+                      required>
+               <div class="error"
+                    ng-show="loginForm.$submitted || loginForm.password.$dirty && loginForm.password.$invalid">
+                  <small class="error text-danger" ng-show="loginForm.password.$error.required">
+                     Password is required.
+                  </small>
+                  <small class="error text-danger"
+                         ng-show="loginForm.password.$error.minlength && !loginForm.password.$error.required">
+                     Password is required to be at least 6 characters.
+                  </small>
+               </div>
+            </md-input-container>
+
+            <div class="remember-forgot-password" layout="row" layout-xs="column"
+                 layout-align="space-between center">
+               <md-checkbox class="remember-me" ng-model="data.cb1" aria-label="Remember Me">
+                  <span>Remember Me</span>
+               </md-checkbox>
+
+               <a ui-sref="page.recover" class="forgot-password md-ink-ripple"
+                  style="color:#0867BB">Reset Password?</a>
+            </div>
+            <!--ng-disabled="loginForm.$invalid || loginForm.$pristine"-->
+            <md-button type="submit" class="md-raised md-accent submit-button">
+               LOG IN
+            </md-button>
+         </form>
+
+         <div class="register" layout="row" layout-sm="column" layout-align="center center">
+            <span style="margin-right: 6px;">Don't have an account?</span>
+            <a class="link" ui-sref="page.register">Create an account</a>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+//   $(document).ready(function(){
+//      $('#login').css('height', jQuery(document).height()+'px');
+//      $(window).resize(function() {
+//         $('#login').css('height',jQuery(document).height()+'px');
+//      });
+//   });
+</script>

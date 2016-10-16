@@ -1,0 +1,16 @@
+<md-dialog  ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>PROFILE PICTURE</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times icon-large" aria-hidden="true"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-padding" layout="column">
+            <img ng-src="{{picture.original}}" style="width: 490px;height: 400px;"/>
+        </md-dialog-content>
+    </form>
+</md-dialog>

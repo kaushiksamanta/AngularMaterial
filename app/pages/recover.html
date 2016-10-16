@@ -1,0 +1,48 @@
+<div id="forgot-password" class="flex-scrollable" layout="column" ms-scroll>
+   <div id="forgot-password-form-wrapper" layout="column" layout-align="center center">
+      <div id="forgot-password-form" class="md-whiteframe-8dp" dw-loading="recover">
+         <div>
+            <img src="app/img/white_drob_icon.png" style="width: 270px;
+               height: 190px;">
+         </div>
+
+         <div class="title">Reset your password</div>
+
+         <form name="forgotPasswordForm" novalidate ng-submit="recover(forgotPasswordForm.$valid)">
+            <md-input-container class="md-block">
+               <input type="email" name="email" ng-model="user.email" placeholder="Email address"
+                      ng-pattern="/^.+@.+\..+$/" required>
+               <div ng-messages="forgotPasswordForm.email.$error" role="alert" multiple>
+                  <div ng-message="required">
+                     <span>Email field is required</span>
+                  </div>
+                  <div ng-message="pattern">
+                     <span>Email must be a valid e-mail address</span>
+                  </div>
+               </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+               <input type="password" name="password" ng-model="user.password" placeholder="New Password"
+                      required>
+               <div class="error"
+                    ng-show="forgotPasswordForm.$submitted || forgotPasswordForm.password.$dirty && forgotPasswordForm.password.$invalid">
+                  <small class="error text-danger" ng-show="forgotPasswordForm.password.$error.required">
+                     Password is required.
+                  </small>
+               </div>
+            </md-input-container>
+
+            <md-button type="submit" class="md-raised md-accent submit-button"
+                       ng-disabled="forgotPasswordForm.$invalid || forgotPasswordForm.$pristine"
+                       >
+               RESET PASSWORD
+            </md-button>
+         </form>
+
+         <div class="login" layout="row" layout-align="center center">
+            <a class="link" ui-sref="page.login" >Go back to login</a>
+         </div>
+      </div>
+   </div>
+</div>

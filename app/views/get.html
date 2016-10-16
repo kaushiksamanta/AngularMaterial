@@ -1,0 +1,331 @@
+<div id="getPage" class="page-layout simple fullwidth doc-page app-background" layout="column">
+    <div class="content" layout="column">
+        <div layout="row">
+            <div class="form-wrapper md-whiteframe-6dp" flex="90" style="
+            margin-left: 5%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            " dw-loading="drivers">
+                <md-toolbar class="md-theme-light">
+                    <h2 class="md-toolbar-tools">
+                        <span>Get</span>
+                    </h2>
+                </md-toolbar>
+                <md-content layout-padding>
+                    <div class="form-wizard wizard-horizontal" dw-loading="get">
+                        <ol class="row">
+                            <li ng-class="{'active':step1}" ng-click="changetab('step1')" class="col-md-3">
+                                <h4>Pick Up Details</h4>
+                            </li>
+                            <li ng-class="{'active':step2}" ng-click="changetab('step2')" class="col-md-3">
+                                <h4>Parcel Details</h4>
+                            </li>
+                            <li ng-class="{'active':step3}" ng-click="changetab('step3')" class="col-md-3">
+                                <h4>Receiver's Info</h4>
+                            </li>
+                            <li ng-class="{'active':step4}" ng-click="changetab('step4')" class="col-md-3">
+                                <h4>Drop Off Details</h4>
+                            </li>
+                        </ol>
+
+                        <div ng-show="step1">
+                            <form name="pickstep" class="md-inline-form" novalidate>
+                                <fieldset>
+                                    <legend>Add Pickup Details</legend>
+                                    <!-- START row -->
+                                    <div class="row">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                            <center>
+                                                <md-button class="md-primary md-raised" ng-click="selectLocation($event,'pick')">
+                                                    Select Pickup Location
+                                                </md-button>
+                                            </center>
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input name="address" ng-model="Getpickup.address" placeholder="Address" required>
+                                                <div class="error"
+                                                     ng-show="pickstep.$submitted || pickstep.address.$dirty && pickstep.address.$invalid">
+                                                    <small class="error text-danger" ng-show="pickstep.address.$error.required">
+                                                        This field is required.
+                                                    </small>
+                                                </div>
+                                            </md-input-container>
+
+                                            <md-input-container class="md-block">
+                                                <input name="postcode" ng-model="Getpickup.postalCode" placeholder="Postcode" required>
+                                                <div class="error"
+                                                     ng-show="pickstep.$submitted || pickstep.postcode.$dirty && pickstep.postcode.$invalid">
+                                                    <small class="error text-danger" ng-show="pickstep.postcode.$error.required">
+                                                        This field is required.
+                                                    </small>
+                                                </div>
+                                            </md-input-container>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input name="country" ng-model="Getpickup.country" placeholder="Country" required>
+                                                <div class="error"
+                                                     ng-show="pickstep.$submitted || pickstep.country.$dirty && pickstep.country.$invalid">
+                                                    <small class="error text-danger" ng-show="pickstep.country.$error.required">
+                                                        This field is required.
+                                                    </small>
+                                                </div>
+                                            </md-input-container>
+
+                                            <md-input-container class="md-block">
+                                                <input name="exactAddress" ng-model="Getpickup.exactAddress" placeholder="Exact Address">
+                                            </md-input-container>
+
+                                        </div>
+                                    </div>
+                                    <!--<div class="row">-->
+                                    <!--<div class="col-md-4"></div>-->
+                                    <!--<div class="col-md-4">-->
+                                    <!--<md-input-container class="md-block">-->
+                                    <!--<input name="additional" ng-model="Sendpickup.additional" placeholder="Additional Details">-->
+                                    <!--</md-input-container>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-md-4"></div>-->
+                                    <!--</div>-->
+                                    <!-- END row -->
+                                </fieldset>
+                                <ul class="pager">
+                                    <li class="next"><a  ng-click="changetab('step2')">Next <span>&rarr;</span></a>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+
+                        <div ng-show="step2">
+                            <form name="parcel" class="md-inline-form" novalidate>
+                                <fieldset>
+                                    <legend>Add Parcel Details</legend>
+                                    <!-- START row -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input type="text" name="Name" ng-model="getParcel.Name" placeholder="Name" required>
+                                                <div class="error"
+                                                     ng-show="parcel.$submitted || parcel.address.$dirty && parcel.address.$invalid">
+                                                    <small class="error text-danger" ng-show="parcel.address.$error.required">
+                                                        This field is required.
+                                                    </small>
+                                                </div>
+                                            </md-input-container>
+                                            <div style="margin-top: -20px;">
+                                                <label>Weight</label>
+                                                <select name="weight" class="form-control" ng-model="getParcel.weight" required>
+                                                    <option ng-repeat="data in weightArray" value="{{data.weight}}">{{data.weight}} {{data.unit}}</option>
+                                                </select>
+                                                <div class="error"
+                                                     ng-show="parcel.$submitted || parcel.weight.$dirty && parcel.weight.$invalid">
+                                                    <small class="error text-danger" ng-show="parcel.weight.$error.required">
+                                                        This field is required.
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input type="text" name="description" ng-model="getParcel.description" placeholder="Description" data-parsley-group="step2">
+                                                <!--<div class="error"-->
+                                                     <!--ng-show="parcel.$submitted || parcel.description.$dirty && parcel.description.$invalid">-->
+                                                    <!--&lt;!&ndash;<small class="error text-danger" ng-show="parcel.description.$error.required">&ndash;&gt;-->
+                                                        <!--&lt;!&ndash;This field is required.&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;</small>&ndash;&gt;-->
+                                                <!--</div>-->
+                                            </md-input-container>
+                                            <md-input-container class="md-block">
+                                                <input type="text" name="additionalDetailsParcel" ng-model="getParcel.additionalDetailsParcel" placeholder="Additional Details" >
+                                                <!--<div class="error"-->
+                                                     <!--ng-show="parcel.$submitted || parcel.additionalDetailsParcel.$dirty && parcel.additionalDetailsParcel.$invalid">-->
+                                                    <!--<small class="error text-danger" ng-show="parcel.additionalDetailsParcel.$error.required">-->
+                                                        <!--This field is required.-->
+                                                    <!--</small>-->
+                                                <!--</div>-->
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input name="estimate" ng-model="getParcel.estimate" placeholder="Estimate" >
+                                                <div class="error"
+                                                     ng-show="parcel.$submitted || parcel.estimate.$dirty && parcel.estimate.$invalid">
+                                                    <!--<small class="error text-danger" ng-show="parcel.estimate.$error.required">-->
+                                                        <!--This field is required.-->
+                                                    <!--</small>-->
+                                                </div>
+                                            </md-input-container>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="control-label" style="color: #BDBDBD;">Parcel Image Upload</label>
+                                            <div class="form-group">
+                                                    <span class="btn btn-default btn-file">
+                                                        <input id="registerFile" type="file" accept="image/*" placeholder="Image" onchange="angular.element(this).scope().file_to_upload(this.files)"
+                                                               required>
+                                                    </span>
+                                            </div>
+                                            <!--<lf-ng-md-file-input lf-files="files" lf-browse-label="Search" lf-remove-label="Delete" lf-maxcount="1" lf-drag-and-drop-label="Drag and Drop here!" lf-placeholder="Upload Parcel Image" lf-mimetype="image/*" drag preview></lf-ng-md-file-input>-->
+                                            <!--<div class="error"-->
+                                                 <!--ng-show="parcel.$submitted || parcel.image.$dirty && parcel.image.$invalid">-->
+                                                <!--<small class="error text-danger" ng-show="parcel.image.$error.required">-->
+                                                    <!--This field is required.-->
+                                                <!--</small>-->
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                    <!-- END row -->
+                                </fieldset>
+                                <ul class="pager">
+                                    <li class="previous">
+                                        <a href="#" ng-click="changetab('step1')">
+                                            <span>&larr; Previous</span>
+                                        </a>
+                                    </li>
+                                    <li class="next"><a href="#" ng-click="changetab('step3')">Next <span>&rarr;</span></a>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+
+                        <div ng-show="step3">
+                            <form name="receiver" class="md-inline-form" novalidate>
+                                <fieldset>
+                                    <legend>Add Receiver's Details</legend>
+                                    <!-- START row -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input type="text" name="Name" ng-model="getReceiver.ReceiverName" placeholder="Receiver Name"  required>
+                                                <!--<div class="error"-->
+                                                <!--ng-show="receiver.$submitted || receiver.Name.$dirty && receiver.Name.$invalid">-->
+                                                <!--<small class="error text-danger" ng-show="receiver.Name.$error.required">-->
+                                                <!--This field is required.-->
+                                                <!--</small>-->
+                                                <!--</div>-->
+                                            </md-input-container>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input type="text" name="Phone" ng-model="getReceiver.phone" placeholder="Phone Number" ng-minlength="10" maxlength="10" numbers-only="numbers-only">
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                    <!-- END row -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input type="text" name="countrycode" ng-model="getReceiver.countrycode" placeholder="Country Code" ng-minlength="3" maxlength="3" numbers-only="numbers-only">
+                                            </md-input-container>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+                                </fieldset>
+                                <ul class="pager">
+                                    <li class="previous">
+                                        <a href="#" ng-click="changetab('step2')">
+                                            <span>&larr; Previous</span>
+                                        </a>
+                                    </li>
+                                    <li class="next"><a href="#" ng-click="changetab('step4')">Next <span>&rarr;</span></a>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+
+                        <div ng-show="step4">
+                            <form name="stepdrop" class="md-inline-form" novalidate>
+                                <fieldset>
+                                    <legend>Add Drop Off Details</legend>
+                                    <!-- START row -->
+                                    <div class="row">
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                            <center>
+                                                <md-button class="md-primary md-raised" ng-click="selectLocation($event,'drop')">
+                                                    Select Dropoff Location
+                                                </md-button>
+                                            </center>
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input name="address" ng-model="Getdropoff.address" placeholder="Address" required>
+                                                <div class="error"
+                                                     ng-show="stepdrop.$submitted || stepdrop.address.$dirty && stepdrop.address.$invalid">
+                                                    <small class="error text-danger" ng-show="stepdrop.address.$error.required">
+                                                        This field is required.
+                                                    </small>
+                                                </div>
+                                            </md-input-container>
+
+                                            <md-input-container class="md-block">
+                                                <input name="postcode" ng-model="Getdropoff.postalCode" placeholder="Postcode" required>
+                                                <div class="error"
+                                                     ng-show="stepdrop.$submitted || stepdrop.postcode.$dirty && stepdrop.postcode.$invalid">
+                                                    <small class="error text-danger" ng-show="asd.postcode.$error.required">
+                                                        This field is required.
+                                                    </small>
+                                                </div>
+                                            </md-input-container>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input name="country" ng-model="Getdropoff.country" placeholder="Country" required>
+                                                <div class="error"
+                                                     ng-show="stepdrop.$submitted || stepdrop.country.$dirty && stepdrop.country.$invalid">
+                                                    <small class="error text-danger" ng-show="stepdrop.country.$error.required">
+                                                        This field is required.
+                                                    </small>
+                                                </div>
+                                            </md-input-container>
+
+                                            <md-input-container class="md-block">
+                                                <input name="exactAddress" ng-model="Getdropoff.exactAddress" placeholder="Exact Address">
+                                            </md-input-container>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <md-input-container class="md-block">
+                                                <input name="additional" ng-model="Senddropoff.additional" placeholder="Additional Details">
+                                            </md-input-container>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!--<md-button class="md-primary md-raised" ng-click="calculateFare()">-->
+                                            <!--Calculate Fair-->
+                                            <!--</md-button>-->
+                                            <label>Total Estimated Fare: {{fare}}</label>
+                                        </div>
+                                    </div>
+                                    <md-button class="md-primary md-raised" ng-click="submit()">
+                                        Book
+                                    </md-button>
+                                    <!-- END row -->
+                                </fieldset>
+                                <ul class="pager">
+                                    <li class="previous">
+                                        <a href="#" ng-click="changetab('step3')">
+                                            <span>&larr; Previous</span>
+                                        </a>
+                                    </li>
+                                    <!--<li class="next"><a ng-click="changetab('step5')">Next <span>&rarr;</span></a>-->
+                                    <!--</li>-->
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </md-content>
+            </div>
+        </div>
+    </div>
+</div>

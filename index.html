@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="Drob">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="{{app.description}}">
+   <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
+   <title data-ng-bind="pageTitle()">Drob - Admin</title>
+   <link rel="stylesheet" href="app/css/app.css">
+   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+   <link rel="stylesheet" href="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.css">
+   <link rel="stylesheet" href="bower_components/angular-loading/angular-loading.css">
+   <link rel="stylesheet" href="app/css/custom.css">
+   <link rel="stylesheet" href="app/css/dashboard.css">
+   <link rel="stylesheet" href="app/css/theme-e.css">
+   <link rel="stylesheet" href="app/css/login.css">
+   <link rel="stylesheet" href="app/css/forgot_password.css">
+   <link rel="stylesheet" href="app/css/register.css">
+</head>
+
+<body ng-controller="AppController" data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat}">
+   <div data-ui-view="" data-autoscroll="false" class="wrapper"></div>
+   <script src="app/js/base.js"></script>
+   <script src="app/js/app.init.js"></script>
+
+   <script src="app/js/modules/config.js"></script>
+   <script src="app/js/modules/constants.js"></script>
+
+   <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyARSHJ2mrz4R3TS77RRhGqaaMSAQLlJR5Q&libraries=places'></script>
+   <script src="bower_components/angular-animate/angular-animate.js"></script>
+   <script src="bower_components/angular-aria/angular-aria.js"></script>
+   <script src="bower_components/angular-messages/angular-messages.js"></script>
+   <script src="bower_components/angular-material/angular-material.js"></script>
+   <script src="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.js"></script>
+   <script src="bower_components/spin.js/spin.js"></script>
+   <script src="bower_components/angular-loading/angular-loading.js"></script>
+   <script src="bower_components/lodash/lodash.js"></script>
+   <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+   <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+
+   <!--Controllers-->
+
+   <script src="app/js/modules/controllers/main.js"></script>
+   <script src="app/js/modules/controllers/dashboard-ctrl.js"></script>
+   <script src="app/js/modules/controllers/demo-buttons.js"></script>
+   <script src="app/js/modules/controllers/login.js"></script>
+   <script src="app/js/modules/controllers/register.js"></script>
+   <script src="app/js/modules/controllers/recover.js"></script>
+   <script src="app/js/modules/controllers/logout.js"></script>
+   <script src="app/js/modules/controllers/profile.js"></script>
+   <script src="app/js/modules/controllers/drivers.js"></script>
+   <script src="app/js/modules/controllers/invite.js"></script>
+   <script src="app/js/modules/controllers/get.js"></script>
+   <script src="app/js/modules/controllers/send.js"></script>
+   <script src="app/js/modules/controllers/invitedCustomers.js"></script>
+   <script src="app/js/modules/controllers/serviceRequests.js"></script>
+   <script src="app/js/modules/controllers/ongoing.js"></script>
+   <script src="app/js/modules/controllers/upcoming.js"></script>
+   <script src="app/js/modules/controllers/past.js"></script>
+   <script src="app/js/modules/controllers/cancelled.js"></script>
+   <script src="app/js/modules/controllers/settings.js"></script>
+   <script src="app/js/modules/controllers/datepicker.js"></script>
+   <script src="app/js/modules/controllers/reports.js"></script>
+   <!--Directives-->
+
+   <script src="app/js/modules/directives/allowPatern.js"></script>
+   <script src="app/js/modules/directives/anchor.js"></script>
+   <script src="app/js/modules/directives/animate-enabled.js"></script>
+   <script src="app/js/modules/directives/chart.js"></script>
+   <script src="app/js/modules/directives/classy-loader.js"></script>
+   <script src="app/js/modules/directives/clear-storage.js"></script>
+   <script src="app/js/modules/directives/filestyle.js"></script>
+   <script src="app/js/modules/directives/flatdoc.js"></script>
+   <script src="app/js/modules/directives/flot.js"></script>
+   <script src="app/js/modules/directives/form-wizard.js"></script>
+   <script src="app/js/modules/directives/fullscreen.js"></script>
+   <script src="app/js/modules/directives/gmap.js"></script>
+   <script src="app/js/modules/directives/load-css.js"></script>
+   <script src="app/js/modules/directives/masked.js"></script>
+   <script src="app/js/modules/directives/navbar-search.js"></script>
+   <script src="app/js/modules/directives/nestable.js"></script>
+   <script src="app/js/modules/directives/notify.js"></script>
+   <script src="app/js/modules/directives/now.js"></script>
+   <script src="app/js/modules/directives/panel-tools.js"></script>
+   <script src="app/js/modules/directives/play-animations.js"></script>
+   <script src="app/js/modules/directives/scroll.js"></script>
+   <script src="app/js/modules/directives/sidebar.js"></script>
+   <script src="app/js/modules/directives/skycons.js"></script>
+   <script src="app/js/modules/directives/sparklines.js"></script>
+   <script src="app/js/modules/directives/table-checkall.js"></script>
+   <script src="app/js/modules/directives/tags-input.js"></script>
+   <script src="app/js/modules/directives/toggle-state.js"></script>
+   <script src="app/js/modules/directives/ui-slider.js"></script>
+   <script src="app/js/modules/directives/validate-form.js"></script>
+   <script src="app/js/modules/directives/vector-map.js"></script>
+
+   <!-- Services-->
+
+   <script src="app/js/modules/services/browser.js"></script>
+   <script src="app/js/modules/services/colors.js"></script>
+   <script src="app/js/modules/services/google-map.js"></script>
+   <script src="app/js/modules/services/nav-search.js"></script>
+   <script src="app/js/modules/services/route-helpers.js"></script>
+   <script src="app/js/modules/services/toggle-state.js"></script>
+   <script src="app/js/modules/services/utils.js"></script>
+   <script src="app/js/modules/services/vector-map.js"></script>
+
+   <script src="app/js/custom/custom.js"></script>
+   <script src="app/js/alasql.min.js"></script>
+   <script src="app/vendor/export/alasql.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<div id="invitedCustomersPage" class="page-layout simple fullwidth doc-page app-background" layout="column">
+    <div class="content" layout="column">
+        <div layout="row">
+            <div class="form-wrapper md-whiteframe-6dp" flex="90" style="
+            margin-left: 5%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            " dw-loading="invitedCustomers">
+                <md-toolbar class="md-theme-light">
+                    <h2 class="md-toolbar-tools">
+                        <span>Invited Customers</span>
+                    </h2>
+                </md-toolbar>
+                <md-content layout-padding>
+                    <table id="invitedCustomers" class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Profile Picture</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone No.</th>
+                            <th>Country Code</th>
+                            <th>Language</th>
+                            <th>Book</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="data in invitedCustomersList">
+                            <td>
+                                <div ng-click="driverPic($event,data.profilePic)" ng-if="data.profilePic.thumbnail">
+                                    <img ng-src="{{data.profilePic.thumbnail}}" class="md-avatar" alt="{{data.firstname}}"/>
+                                </div>
+                                <div ng-if="!data.profilePic.thumbnail">
+                                    N.A.
+                                </div>
+                            </td>
+                            <td>{{data.name ? data.name:'N.A'}}</td>
+                            <td>{{data.email}}</td>
+                            <td>{{data.phoneNo}}</td>
+                            <td>{{data.countryCode}}</td>
+                            <td>{{data.language}}</td>
+                            <td>
+                                <md-button class="md-primary md-raised" ng-click="startbook($event,data.id)">
+                                Book
+                                </md-button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-content>
+
+            </div>
+        </div>
+    </div>
+</div>

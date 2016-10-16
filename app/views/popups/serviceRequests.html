@@ -1,0 +1,139 @@
+<md-dialog  ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>DETAILS</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times icon-large" aria-hidden="true"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-padding" layout="column">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="md-title">Customer Details</h1>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone Number</th>
+                            <th>Device Type</th>
+                            <th>Language</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{modelDetails.customer.name ? modelDetails.customer.name :'N.A'}}</td>
+                            <td>{{modelDetails.customer.countryCode}} {{modelDetails.customer.phoneNo ? modelDetails.customer.phoneNo : 'N.A'}}</td>
+                            <td>{{modelDetails.customer.deviceType ? modelDetails.customer.deviceType : 'N.A'}}</td>
+                            <td>{{modelDetails.customer.language ? modelDetails.customer.language : 'N.A'}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div ng-if="modelDetails.type==1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="md-title">Pickup Details</h1>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Exact Address</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{modelDetails.pickupaddress.location ? modelDetails.pickupaddress.location :'N.A'}}</td>
+                                <td>{{modelDetails.pickupaddress.exactAddress ? modelDetails.pickupaddress.exactAddress:'N.A'}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="md-title">DropOff Details</h1>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone Number</th>
+                                <th>Location</th>
+                                <th>Exact Address</th>
+                                <th>Fare</th>
+                                <th>Additional Details</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{modelDetails.deliveryaddress.name ? modelDetails.deliveryaddress.name : 'N.A'}}</td>
+                                <td>{{modelDetails.deliveryaddress.countryCode}} {{modelDetails.deliveryaddress.phoneNo ? modelDetails.deliveryaddress.phoneNo : 'N.A'}}</td>
+                                <td>{{modelDetails.deliveryaddress.location ? modelDetails.deliveryaddress.location : 'N.A'}}</td>
+                                <td>{{modelDetails.deliveryaddress.exactAddress ? modelDetails.deliveryaddress.exactAddress:'N.A'}}</td>
+                                <td>{{modelDetails.deliveryaddress.fare ? modelDetails.deliveryaddress.fare :'N.A'}}</td>
+                                <td>{{modelDetails.deliveryaddress.additionalDetails ? modelDetails.deliveryaddress.additionalDetails: 'N.A'}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="modelDetails.type==0">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="md-title">Pickup Details</h1>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone Number</th>
+                                <th>Location</th>
+                                <th>Exact Address</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{modelDetails.pickupaddress.name ? modelDetails.pickupaddress.name : 'N.A'}}</td>
+                                <td>{{modelDetails.pickupaddress.countryCode}} {{modelDetails.pickupaddress.phoneNo ? modelDetails.pickupaddress.phoneNo : 'N.A'}}</td>
+                                <td>{{modelDetails.pickupaddress.location ? modelDetails.pickupaddress.location : 'N.A'}}</td>
+                                <td>{{modelDetails.pickupaddress.exactAddress ? modelDetails.pickupaddress.exactAddress:'N.A'}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="md-title">DropOff Details</h1>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Exact Address</th>
+                                <th>Fare</th>
+                                <th>Additional Details</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{modelDetails.deliveryaddress.location ? modelDetails.deliveryaddress.location : 'N.A'}}</td>
+                                <td>{{modelDetails.deliveryaddress.exactAddress ? modelDetails.deliveryaddress.exactAddress: 'N.A'}}</td>
+                                <td>{{(modelDetails.deliveryaddress.fare ? modelDetails.deliveryaddress.fare : 0) + (modelDetails.pickupaddress.actualCost ? modelDetails.pickupaddress.actualCost : 0)}}</td>
+                                <td>{{modelDetails.deliveryaddress.additionalDetails ? modelDetails.deliveryaddress.additionalDetails:'N.A'}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--<div class="row" ng-if="modelDetails.pickupaddress.actualCost">-->
+                    <!--<div class="col-md-12">-->
+                        <!--<h1 class="md-title">Actual Cost :- {{modelDetails.pickupaddress.actualCost ? modelDetails.pickupaddress.actualCost : 'N.A.'}}</h1>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

@@ -1,0 +1,54 @@
+<md-dialog  ng-cloak>
+  <div class="content" layout="column" style="width: 500px;">
+    <form name="faqForm" class="md-inline-form" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>FAQ</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times icon-large" aria-hidden="true"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-padding" layout="column" style="margin-top: 10px;">
+        <div>
+          <md-button type="submit" class="md-raised md-accent" aria-label="Submit" ng-click="add()" style="float:right;">
+              Add
+          </md-button>
+        </div>
+        <div class="form-group" ng-repeat="faq in Data">
+          <ng-form name="userFieldForm">
+            <label>FAQ No. {{$index+1}}</label>
+            <md-input-container class="md-block">
+                <input name="question" ng-model="faq.question" placeholder="Question"
+                       required>
+                <div class="error"
+                     ng-show="userFieldForm.$submitted || userFieldForm.question.$dirty && userFieldForm.question.$invalid">
+                    <small class="error text-danger" ng-show="userFieldForm.question.$error.required">
+                        Question field is required.
+                    </small>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <input name="answer" ng-model="faq.answer" placeholder="Answer"
+                       required>
+                <div class="error"
+                     ng-show="userFieldForm.$submitted || userFieldForm.answer.$dirty && userFieldForm.answer.$invalid">
+                    <small class="error text-danger" ng-show="userFieldForm.answer.$error.required">
+                        Answer field is required.
+                    </small>
+                </div>
+            </md-input-container>
+
+          </ng-form>
+        </div>
+        <div>
+          <md-button type="submit" class="md-raised md-accent" aria-label="Submit" ng-click="faqUpdate(faqForm.$valid)"
+                     ng-disabled="faqForm.$invalid || faqForm.$pristine">
+              Submit
+          </md-button>
+        </div>
+        </md-dialog-content>
+    </form>
+  </div>
+</md-dialog>

@@ -1,0 +1,137 @@
+<div id="register" class="flex-scrollable" layout="column" ms-scroll>
+   <div id="register-form-wrapper" layout="column" layout-align="center center">
+      <div id="register-form" class="md-whiteframe-8dp" dw-loading="register">
+         <div>
+            <img src="app/img/white_drob_icon.png" style="width: 190px;
+               height: 170px;">
+         </div>
+
+         <div class="title">Create An Account</div>
+
+         <form name="registerForm" novalidate ng-submit="register(registerForm.$valid)">
+            <md-input-container class="md-block">
+               <input name="username" ng-model="user.username" placeholder="Name"
+                      required>
+               <div class="error"
+                    ng-show="registerForm.$submitted || registerForm.username.$dirty && registerForm.username.$invalid">
+                  <small class="error text-danger" ng-show="registerForm.username.$error.required">
+                     Username field is required.
+                  </small>
+               </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+               <input type="email" name="email" ng-model="user.email" placeholder="Email"
+                      ng-pattern="/^.+@.+\..+$/" required>
+               <div class="error"
+                    ng-show="registerForm.$submitted || registerForm.email.$dirty && registerForm.email.$invalid">
+                  <small class="error text-danger" ng-show="registerForm.email.$error.required">
+                     Email is required.
+                  </small>
+                  <small class="error text-danger"
+                         ng-show="registerForm.email.$invalid && !registerForm.email.$error.required">
+                     That is not a valid email. Please insert a valid email.
+                  </small>
+               </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+               <input type="text" name="country" ng-model="user.countryCode" placeholder="Country Code"
+                      ng-minlength="3" maxlength="3" required numbers-only="numbers-only">
+               <div class="error"
+                    ng-show="registerForm.$submitted || registerForm.country.$dirty && registerForm.country.$invalid">
+                  <small class="error text-danger" ng-show="registerForm.country.$error.required">
+                     Country Code is required.
+                  </small>
+                  <small class="error text-danger" ng-show="registerForm.country.$error.minlength && !registerForm.country.$error.required">
+                     Country Code is required to be 3 digits
+                  </small>
+               </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+               <input type="text" name="phone" ng-model="user.phone" placeholder="Phone Number"
+                       ng-minlength="10" maxlength="10" required numbers-only="numbers-only">
+               <div class="error"
+                    ng-show="registerForm.$submitted || registerForm.phone.$dirty && registerForm.phone.$invalid">
+                  <small class="error text-danger" ng-show="registerForm.phone.$error.required">
+                     Phone No is required.
+                  </small>
+                  <small class="error text-danger" ng-show="registerForm.phone.$error.minlength && !registerForm.phone.$error.required">
+                     Phone No is required to be 10 digits
+                  </small>
+               </div>
+            </md-input-container>
+            <!--md-no-float-->
+            <md-input-container class="md-block">
+               <input type="password" name="password" ng-model="user.password" placeholder="Password" ng-minlength="6"
+                      required>
+               <div class="error"
+                    ng-show="registerForm.$submitted || registerForm.password.$dirty && registerForm.password.$invalid">
+                  <small class="error text-danger" ng-show="registerForm.password.$error.required">
+                     Password is required.
+                  </small>
+                  <small class="error text-danger"
+                         ng-show="registerForm.password.$error.minlength && !registerForm.password.$error.required">
+                     Password is required to be at least 6 characters.
+                  </small>
+               </div>
+            </md-input-container>
+
+            <!--<md-input-container class="md-block" md-no-float>-->
+               <!--<input type="password" name="passwordConfirm" ng-model="vm.form.passwordConfirm" ng-minlength="6"-->
+                      <!--placeholder="Password (Confirm)"-->
+                      <!--required>-->
+               <!--<div class="error"-->
+                    <!--ng-show="registerForm.$submitted || registerForm.passwordConfirm.$dirty && registerForm.passwordConfirm.$invalid">-->
+                  <!--<small class="error text-danger" ng-show="registerForm.passwordConfirm.$error.required">-->
+                     <!--Password is required.-->
+                  <!--</small>-->
+                  <!--<small class="error text-danger" ng-show="registerForm.passwordConfirm.$error.minlength">-->
+                     <!--Password is required to be at least 6 characters.-->
+                  <!--</small>-->
+                  <!--<small class="error text-danger" ng-show="vm.form.password!=vm.form.passwordConfirm && !registerForm.passwordConfirm.$error.required">-->
+                     <!--Passwords do not match.-->
+                  <!--</small>-->
+               <!--</div>-->
+            <!--</md-input-container>-->
+
+            <!--<lf-ng-md-file-input lf-files="files" lf-api="registerImage" lf-mimetype="image/*" lf-placeholder="Upload Profile Picture"></lf-ng-md-file-input>-->
+
+            <div class="form-group">
+               <label class="control-label" style="color: #BDBDBD;">Image Upload</label>
+               <span class="btn btn-default btn-file">
+               <input id="registerFile" type="file" accept="image/*" placeholder="Image" onchange="angular.element(this).scope().file_to_upload(this.files)"
+                      required>
+                  </span>
+            </div>
+
+            <div class="terms" layout="row" layout-align="center center">
+               <md-checkbox name="terms" ng-model="data.cb1" aria-label="I read and accept" required></md-checkbox>
+               <div layout="row" layout-sm="column" layout-align="start center">
+                  <span>I Accept</span>
+                  <a href="#" class="md-accent-color">Terms And Conditions</a>
+               </div>
+            </div>
+
+            <md-button type="submit" class="md-raised md-accent submit-button" aria-label="CREATE MY ACCOUNT"
+                       ng-disabled="registerForm.$invalid || registerForm.$pristine">
+               CREATE MY ACCOUNT
+            </md-button>
+         </form>
+
+         <div class="login" layout="row" layout-xs="column" layout-align="center center">
+            <span class="text">Already have an account?</span>
+            <a class="link" ui-sref="page.login">Log in</a>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+//   $(document).ready(function(){
+//      $('#register-form-wrapper').css('height', jQuery(document).height()+'px');
+//      $(window).resize(function() {
+//         $('#register-form-wrapper').css('height',jQuery(document).height()+'px');
+//      });
+//   });
+</script>

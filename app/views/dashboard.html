@@ -1,0 +1,140 @@
+<div class="parent" ng-style="style()" resize="115">
+<!--<div class="row">-->
+   <div class="col-sm-2 T20" style="background-color:yellow;height: inherit;" ng-style="style()" resize="115">
+      <div class="panel panel-default panel-warning " style="
+      height: inherit;
+      margin-bottom: 0px;
+      border-top-width: 0px;
+      margin-left: -16px;
+      margin-right: -15px;
+      ">
+         <div class="panel-heading left-panel-dashboard" style="
+         border-top-right-radius: 0px;
+         border-top-left-radius: 0px;
+         background-color: #1E8AAB;
+    ">
+            <div class="row">
+               <div class="panel-title col-md-4">Tasks</div>
+               <!--<div class="datepicker col-md-8">-->
+                  <!--<p class="input-group">-->
+                     <!--<input placeholder="From Date" type="text" datepicker-popup="{{format}}"-->
+                            <!--ng-model="add.from_date" is-open="opened"-->
+                            <!--min-date="minDate" max-date="maxDate" datepicker-options="dateOptions"-->
+                            <!--date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"-->
+                            <!--class="form-control date-placeholder-dashboard" ng-change="change()" readonly />-->
+                            <!--<span class="input-group-btn">-->
+                               <!--<button type="button" ng-click="open($event)" class="btn btn-default date-button">-->
+                                  <!--<em class="fa fa-calendar"></em>-->
+                               <!--</button>-->
+                            <!--</span>-->
+                  <!--</p>-->
+               <!--</div>-->
+            </div>
+         </div>
+         <div style="margin-bottom:0px;" class="list-group left-scrollbar-dashboard"  id="scroll">
+            <thead>
+            <tr>
+               <div ng-repeat="data in bookingsList">
+                  <!-- START list group item-->
+                  <a  class="list-group-item">
+                     <div class="media-box">
+                        <div class="pull-left">
+                           <div class="outer-id">
+                              <span class="inner-id">ID</span>
+                           </div>
+                        </div>
+                        <div class="media-box-body clearfix">
+                           <div>
+                              <span class="label label-info pull-right" ng-if="data.type==0">GET</span>
+                              <span class="label label-primary pull-right" ng-if="data.type==1">SEND</span>
+                           </div>
+                           <strong class="media-box-heading text-primary">{{data.orderno}}</strong>
+                        </div>
+                     </div>
+                     <div class="media-box media-box-top">
+                        <div class="pull-left">
+                           <div class="first-letter-outer">
+                              <span class="first-letter-inner">{{data.Firstletter}}</span>
+                           </div>
+                        </div>
+                        <div class="pull-left">
+                           <strong class="media-box-heading text-primary">{{data.name}}</strong>
+                        </div>
+                     </div>
+                     <div class="media-box media-box-top">
+                        <div>
+                           <strong class="location-color">Pick Up Location</strong>
+                        </div>
+                        <small>{{data.pickupaddress}}</small>
+                     </div>
+                     <div class="media-box media-box-top">
+                        <div>
+                           <strong class="location-color">Drop Off Location</strong>
+                        </div>
+                        <small>{{data.deliveryaddress}}</small>
+                     </div>
+                  </a>
+                  <hr class="hrclass">
+                  <!-- END list group item-->
+               </div>
+            </tr>
+            </thead>
+         </div>
+         <div class="panel-footer clearfix" style="padding: 12px 15px;background-color: #1E8AAB;color:#FFF;border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;">
+            <small>Scroll Down to show more</small>
+         </div>
+      </div>
+   </div>
+   <div class="col-sm-8 T60" style="height: inherit;" id='map' ng-style="style()" resize="115">
+      <!--<ui-gmap-google-map center='map.center' zoom='map.zoom' options="options"></ui-gmap-google-map>-->
+   </div>
+   <div class="col-sm-2 T20" style="background-color:pink;height: inherit;" ng-style="style()" resize="115">
+      <div class="panel panel-default panel-warning " style="
+          height: inherit;
+          margin-bottom: 0px;
+          border-top-width: 0px;
+          margin-left: -15px;
+          margin-right: -16px;
+          border: 0px;
+          border-radius: 0px;
+         ">
+         <div class="panel-heading" style="
+         border-top-right-radius: 0px;
+         border-top-left-radius: 0px;
+         background-color: #1E8AAB;
+         ">
+            <div class="panel-title">Live Drivers</div>
+         </div>
+         <div class="list-group right-scrollbar-dashboard" id="scrollright">
+
+            <!-- START list group item-->
+            <div ng-repeat="data in driversInMap">
+               <a class="list-group-item" ng-click="dropMarker(data.latitude,data.longitude,data.fullName,data.id)">
+                  <!-- <a class="list-group-item"> -->
+                  <div class="media-box">
+                     <div class="pull-left">
+                        <img src="{{data.driverImageUrl ? data.driverImageUrl : 'app/img/avatar.png'}}" alt="Image" class="media-box-object img-circle thumb32" />
+                     </div>
+                     <div class="media-box-body clearfix">
+                        <strong class="media-box-heading text-primary">
+                           <span class="circle circle-success circle-lg text-left"></span>
+                           {{data.fullName}}
+                        </strong>
+                        <p class="mb-sm">
+                           <small>{{data.email}}</small>
+                        </p>
+                     </div>
+                  </div>
+               </a>
+            </div>
+            <!-- END list group item-->
+         </div>
+         <div class="panel-footer clearfix" style="padding: 11px 15px;background-color: #1E8AAB;color:#FFF;border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;">
+            <small>Scroll Down to show more</small>
+         </div>
+      </div>
+   </div>
+<!--</div>-->
+</div>

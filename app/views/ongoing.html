@@ -1,0 +1,88 @@
+<div id="ongoingPage" class="page-layout simple fullwidth doc-page app-background" layout="column">
+    <div class="content" layout="column">
+        <div layout="row">
+            <div class="form-wrapper md-whiteframe-6dp" flex="90" style="
+            margin-left: 5%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            " dw-loading="ongoing">
+                <md-toolbar class="md-theme-light">
+                    <h2 class="md-toolbar-tools">
+                        <span>Ongoing</span>
+                    </h2>
+                </md-toolbar>
+                <md-content layout-padding>
+                    <table id="ongoing" class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th hidden>Index</th>
+                            <th>Order No.</th>
+                            <th>Order Type</th>
+                            <th>Booking Status</th>
+                            <th>Date</th>
+                            <th>Parcel Name</th>
+                            <th>Weight</th>
+                            <th>Additional Details</th>
+                            <th>Estimate</th>
+                            <th>Pickup Address</th>
+                            <th>Dropoff Address</th>
+                            <th>Parcel Pictures</th>
+                            <th>View Details</th>
+                            <!--<th>Reassign Driver</th>-->
+                            <th>Driver Assigned</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="data in bookingsList">
+                            <td hidden>{{$index+1}}</td>
+                            <td>{{data.orderno}}</td>
+                            <td ng-switch="data.type">
+                                <span ng-switch-when="0" class="label label-info">GET</span>
+                                <span ng-switch-when="1" class="label label-primary">SEND</span>
+                            </td>
+                            <td ng-switch="data.bookingstatus">
+                                <span ng-switch-when="0" class="label label-info">PENDING</span>
+                                <span ng-switch-when="1" class="label label-primary">ASSIGNED</span>
+                                <span ng-switch-when="2" class="label label-primary">STARTED</span>
+                                <span ng-switch-when="3" class="label label-success">ENROUTE</span>
+                                <span ng-switch-when="4" class="label label-success">DELIVERED</span>
+                                <span ng-switch-when="5" class="label label-success">COMPLETED</span>
+                                <span ng-switch-when="6" class="label label-warning">CANCELLED</span>
+                            </td>
+                            <td>{{data.dateCreated | date:"dd/MM/yyyy 'at' h:mma"}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.weight}}</td>
+                            <td>{{data.additionalDetails ? data.additionalDetails:'N.A'}}</td>
+                            <td>{{data.estimate ? data.estimate : 'N.A'}}</td>
+                            <td>{{data.pickupaddress.location}}</td>
+                            <td>{{data.deliveryaddress.location}}</td>
+                            <td>
+                                <md-button class="md-primary md-raised" ng-click="parcelPic($event,data.image)" ng-if="data.image.length!=0">
+                                    Parcel Pic
+                                </md-button>
+                                <div ng-if="data.image.length==0" class="centerClass">N.A.</div>
+                            </td>
+                            <td>
+                                <md-button class="md-primary md-raised" ng-click="companyDetails($event,data)">
+                                    View Details
+                                </md-button>
+                            </td>
+                            <!--<td>-->
+                                <!--<md-button class="md-primary md-raised" ng-click="assignDriver($event,data.id)">-->
+                                    <!--Reassign Driver-->
+                                <!--</md-button>-->
+                            <!--</td>-->
+                            <td>
+                                <md-button class="md-primary md-raised" ng-click="driverDetails($event,data.driver)">
+                                    Driver Details
+                                </md-button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-content>
+
+            </div>
+        </div>
+    </div>
+</div>

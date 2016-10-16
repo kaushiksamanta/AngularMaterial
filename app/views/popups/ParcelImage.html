@@ -1,0 +1,16 @@
+<md-dialog  ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>PARCEL IMAGE</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times icon-large" aria-hidden="true"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-padding" layout="column">
+            <img ng-src="{{data}}" ng-repeat="data in picture" style="margin-bottom: 5%;"/>
+        </md-dialog-content>
+    </form>
+</md-dialog>

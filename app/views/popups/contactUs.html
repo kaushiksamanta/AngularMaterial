@@ -1,0 +1,60 @@
+<md-dialog  ng-cloak>
+  <div class="content" layout="column" style="width: 500px;">
+    <form name="ContactUSForm" class="md-inline-form" novalidate ng-submit="ContactUsUpdate(ContactUSForm.$valid)">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Contact Us</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times icon-large" aria-hidden="true"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-padding" layout="column" style="margin-top: 10px;">
+          <md-input-container class="md-block">
+              <input name="callus" type="text" ng-model="contact.callUs" placeholder="Call Us"
+                     ng-minlength="10" maxlength="10" required numbers-only="numbers-only">
+              <div class="error"
+                   ng-show="ContactUSForm.$submitted || ContactUSForm.callus.$dirty && ContactUSForm.callus.$invalid">
+                  <small class="error text-danger" ng-show="ContactUSForm.callus.$error.required">
+                      Call Us field is required.
+                  </small>
+                  <small class="error text-danger" ng-show="ContactUSForm.callus.$error.minlength && !ContactUSForm.callus.$error.required">
+                      Call Us field is required to be 10 digits
+                  </small>
+              </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+              <input name="emailus" type="email" ng-model="contact.emailUs" placeholder="Email Us" ng-pattern="/^.+@.+\..+$/"
+                     required>
+              <div class="error"
+                   ng-show="ContactUSForm.$submitted || ContactUSForm.emailus.$dirty && ContactUSForm.emailus.$invalid">
+                  <small class="error text-danger" ng-show="ContactUSForm.emailus.$error.required">
+                      Email Us field is required.
+                  </small>
+                  <small class="error text-danger"
+                         ng-show="ContactUSForm.emailus.$invalid && !ContactUSForm.emailus.$error.required">
+                      That is not a valid email. Please insert a valid email.
+                  </small>
+              </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+              <input name="address" ng-model="contact.address" placeholder="Address"
+                     required>
+              <div class="error"
+                   ng-show="ContactUSForm.$submitted || ContactUSForm.address.$dirty && ContactUSForm.address.$invalid">
+                  <small class="error text-danger" ng-show="ContactUSForm.address.$error.required">
+                      Address field is required.
+                  </small>
+              </div>
+          </md-input-container>
+          <div>
+            <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
+                       ng-disabled="ContactUSForm.$invalid || ContactUSForm.$pristine">
+                Submit
+            </md-button>
+          </div>
+        </md-dialog-content>
+    </form>
+  </div>
+</md-dialog>

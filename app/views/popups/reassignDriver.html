@@ -1,0 +1,42 @@
+<md-dialog  ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Assign Driver</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times icon-large" aria-hidden="true"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-padding" layout="column" dw-loading="getdrivers">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Assign</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="data in driversList">
+                    <td>{{$index+1}}</td>
+                    <td>{{data.firstname}} {{data.lastname}}</td>
+                    <td>{{data.email}}</td>
+                    <td>{{data.phoneNo}}</td>
+                    <td>
+                        <md-button class="md-raised md-accent" ng-click="assign(data.id,$event)">
+                            Assign
+                        </md-button>
+                    </td>
+                </tr>
+                <tr ng-if="driversList.length == 0">
+                    <td>No Available Data</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-dialog-content>
+    </form>
+</md-dialog>

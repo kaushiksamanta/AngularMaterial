@@ -1,0 +1,23 @@
+<md-dialog  ng-cloak>
+    <form name="AboutUSForm" novalidate ng-submit="AboutUsUpdate(AboutUSForm.$valid,aboutUsContent)">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>About Us</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times icon-large" aria-hidden="true"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-padding" layout="column">
+            <textarea rows="10" cols="70" ng-model="aboutUsContent" style="border-color: rgba(120, 123, 128, 0.4);border-radius: 10px;padding: 5px;">
+            </textarea>
+            <div>
+              <md-button type="submit" class="md-raised md-accent" aria-label="Submit"
+                         ng-disabled="AboutUSForm.$invalid || AboutUSForm.$pristine">
+                  Submit
+              </md-button>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

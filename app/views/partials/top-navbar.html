@@ -1,0 +1,101 @@
+<!-- START Top Navbar-->
+<nav role="navigation" class="navbar topnavbar" ng-controller="LogoutController">
+   <!-- START navbar header-->
+   <!--<div class="navbar-header">-->
+      <!--<a href="#/" class="navbar-brand">-->
+         <!--<div class="brand-logo">-->
+            <!--<img src="app/img/logo.png" alt="App Logo" class="img-responsive" />-->
+         <!--</div>-->
+         <!--<div class="brand-logo-collapsed">-->
+            <!--<img src="app/img/logo-single.png" alt="App Logo" class="img-responsive" />-->
+         <!--</div>-->
+      <!--</a>-->
+   <!--</div>-->
+   <!-- END navbar header-->
+   <!-- START Nav wrapper-->
+   <div class="nav-wrapper">
+      <!-- START Left navbar-->
+      <ul class="nav navbar-nav">
+         <li>
+            <a href="#app/dashboard" class="navbar-brand" ng-class="{'dark':tabs.dashboard}">Dashboard</a>
+         </li>
+         <!-- START User avatar toggle-->
+         <li>
+            <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+            <a href="#app/profile" ng-class="{'dark':tabs.iconuser}">
+               <em class="icon-user"></em>
+            </a>
+         </li>
+         <!-- END User avatar toggle-->
+         <!-- START lock screen-->
+         <!-- <li>
+            <a ui-sref="page.lock" title="Lock screen">
+               <em class="icon-lock"></em>
+            </a>
+         </li> -->
+         <!-- END lock screen-->
+         <li>
+            <a href="#app/drivers" class="navbar-brand" ng-class="{'dark':tabs.Drivers}">Drivers</a>
+        </li>
+        <li>
+           <a href="#app/invite" class="navbar-brand" ng-class="{'dark':tabs.Invite}">Invite</a>
+        </li>
+         <li>
+            <a href="#app/invitedcustomers" class="navbar-brand" ng-class="{'dark':tabs.invitedcustomers}">Invited Customers</a>
+         </li>
+         <li>
+            <a href="#app/serviceRequests" class="navbar-brand" ng-class="{'dark':tabs.serviceRequests}">Service Requests</a>
+         </li>
+         <li dropdown="" class="dropdown dropdown-list">
+            <a dropdown-toggle="" class="navbar-brand" ng-class="{'dark':tabs.jobs}">Jobs <span class="caret"></span></a>
+            <ul class="dropdown-menu animated flipInX" style="min-width: 160px;">
+               <li>
+                  <div class="list-group">
+                     <a href="#/app/upcoming" class="list-group-item">
+                        Upcoming
+                     </a>
+                     <a href="#app/ongoing" class="list-group-item">
+                        Ongoing
+                     </a>
+                     <a href="#app/past" class="list-group-item">
+                        Past
+                     </a>
+                     <a href="#app/cancelled" class="list-group-item">
+                        Cancelled
+                     </a>
+                  </div>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <a href="#app/reports" class="navbar-brand" ng-class="{'dark':tabs.reports}">Reports</a>
+         </li>
+      </ul>
+      <!-- END Left navbar-->
+      <!-- START Right Navbar-->
+      <ul class="nav navbar-nav navbar-right">
+         <li>
+            <a href="#app/settings" class="navbar-brand" ng-class="{'dark':tabs.Settings}">Settings</a>
+         </li>
+         <!-- Fullscreen (only desktops)-->
+         <li class="visible-lg">
+            <a href="#" toggle-fullscreen="toggle-fullscreen">
+               <em class="fa fa-expand"></em>
+            </a>
+         </li>
+         <li>
+               <a title="Logout" ng-click="logoutPopup()" ng-class="{disabled: disable}">
+                  <em class="icon-logout"></em>
+               </a>
+         </li>
+      </ul>
+      <!-- END Right Navbar-->
+   </div>
+   <!-- END Nav wrapper-->
+</nav>
+<!-- END Top Navbar-->
+<style>
+   .disabled {
+      pointer-events: none;
+   }
+</style>
